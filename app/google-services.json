@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "485126521824",
+    "project_id": "noting-stuff",
+    "storage_bucket": "noting-stuff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:485126521824:android:1a545e7676e4efbb5aa185",
+        "android_client_info": {
+          "package_name": "eu.tutorials.noting"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJgqSofx6Dlki59V2iDw6-ITYdh0BhPK0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

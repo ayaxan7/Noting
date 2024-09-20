@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Noting</string>
+    <string name="search">Search</string>
+    <string name="title">Title</string>
+    <string name="date">Date</string>
+    <string name="note">Note</string>
+    <string name="add_note">Add note</string>
+    <string name="delete">Delete</string>
+    <string name="edit_fab">Add Note\n</string>
+</resources>

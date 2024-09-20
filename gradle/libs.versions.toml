@@ -1,0 +1,65 @@
+[versions]
+agp = "8.6.0"
+extAutolink = "4.6.2"
+extStrikethrough = "4.6.2"
+firebaseUiFirestore = "8.0.0"
+glide = "4.13.2"
+glideVersion = "compiler"
+kotlin = "1.9.0"
+coreKtx = "1.13.1"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+appcompat = "1.7.0"
+kotlinxCoroutinesAndroid = "2.2.0"
+lifecycleViewmodelKtx = "2.8.6"
+markdownedittext = "1.0.1"
+material = "1.12.0"
+activity = "1.9.2"
+constraintlayout = "2.1.4"
+googleGmsGoogleServices = "4.4.2"
+firebaseAuth = "23.0.0"
+materialVersion = "1.9.0"
+playServicesAuth = "21.2.0"
+recyclerviewswipedecorator = "1.4.2"
+roomKtx = "2.6.1"
+spectrum = "0.7.1"
+supportAnnotations = "28.0.0"
+
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleViewmodelKtx" }
+androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomKtx" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomKtx" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomKtx" }
+core = { module = "io.noties.markwon:core", version.ref = "extAutolink" }
+ext-autolink = { module = "io.noties.markwon:ext-autolink", version.ref = "extAutolink" }
+ext-strikethrough = { module = "io.noties.markown:ext-strikethrough", version.ref = "extStrikethrough" }
+ext-tables = { module = "io.noties.markwon:ext-tables", version.ref = "extAutolink" }
+ext-tasklist = { module = "io.noties.markwon:ext-tasklist", version.ref = "extAutolink" }
+firebase-ui-auth = { module = "com.firebaseui:firebase-ui-auth", version.ref = "firebaseUiFirestore" }
+firebase-ui-firestore = { module = "com.firebaseui:firebase-ui-firestore", version.ref = "firebaseUiFirestore" }
+github-glide = { module = "com.github.bumptech.glide:glide", version.ref = "glideVersion" }
+glide-v4132 = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid" }
+markdownedittext = { module = "io.github.yahiaangelo.markdownedittext:markdownedittext", version.ref = "markdownedittext" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
+material-v190 = { module = "com.google.android.material:material", version.ref = "materialVersion" }
+play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "playServicesAuth" }
+recyclerviewswipedecorator = { module = "com.github.xabaras:RecyclerViewSwipeDecorator", version.ref = "recyclerviewswipedecorator" }
+spectrum = { module = "com.thebluealliance:spectrum", version.ref = "spectrum" }
+support-annotations = { group = "com.android.support", name = "support-annotations", version.ref = "supportAnnotations" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
+
