@@ -12,6 +12,7 @@ junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 appcompat = "1.7.0"
 kotlinxCoroutinesAndroid = "2.2.0"
+lifecycleRuntimeKtx = "2.8.6 "
 lifecycleViewmodelKtx = "2.8.6"
 markdownedittext = "1.0.1"
 material = "1.12.0"
@@ -22,17 +23,22 @@ firebaseAuth = "23.0.0"
 materialVersion = "1.9.0"
 playServicesAuth = "21.2.0"
 recyclerviewswipedecorator = "1.4.2"
+roomCompiler = "2.6.1 "
 roomKtx = "2.6.1"
+roomRuntime = "2.6.1 "
 spectrum = "0.7.1"
 supportAnnotations = "28.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleViewmodelKtx" }
+androidx-lifecycle-runtime-ktx-v286 = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomKtx" }
+androidx-room-compiler-v261 = { module = "androidx.room:room-compiler", version.ref = "roomCompiler" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomKtx" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomKtx" }
+androidx-room-runtime-v261 = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
 core = { module = "io.noties.markwon:core", version.ref = "extAutolink" }
 ext-autolink = { module = "io.noties.markwon:ext-autolink", version.ref = "extAutolink" }
 ext-strikethrough = { module = "io.noties.markown:ext-strikethrough", version.ref = "extStrikethrough" }
@@ -42,6 +48,7 @@ firebase-ui-auth = { module = "com.firebaseui:firebase-ui-auth", version.ref = "
 firebase-ui-firestore = { module = "com.firebaseui:firebase-ui-firestore", version.ref = "firebaseUiFirestore" }
 github-glide = { module = "com.github.bumptech.glide:glide", version.ref = "glideVersion" }
 glide-v4132 = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+jetbrains-kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }

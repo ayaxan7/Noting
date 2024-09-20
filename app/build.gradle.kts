@@ -51,14 +51,12 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    val roomversion = "2.4.2"
+    implementation (libs.androidx.room.ktx)
+    implementation (libs.androidx.room.runtime)
+    kapt (libs.androidx.room.compiler)
 
-    implementation ("androidx.room:room-ktx:$roomversion")
-    implementation ("androidx.room:room-runtime:$roomversion")
-    kapt ("androidx.room:room-compiler:$roomversion")
-
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1")
-    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
+    implementation (libs.androidx.lifecycle.viewmodel.ktx)
+    implementation (libs.androidx.lifecycle.runtime.ktx)
+    implementation (libs.jetbrains.kotlinx.coroutines.android)
 
 }

@@ -1,4 +1,4 @@
-package eu.tutorials.noting.Models
+package eu.tutorials.noting.models
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -10,4 +10,4 @@ data class Notes(
     @ColumnInfo (name = "title")val title:String?,
     @ColumnInfo(name="note")val body:String?,
     @ColumnInfo(name="data")val date:String?
-)
+):java.io.Serializable

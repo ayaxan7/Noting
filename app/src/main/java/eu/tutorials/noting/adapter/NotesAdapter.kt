@@ -1,4 +1,4 @@
-package eu.tutorials.noting.Adapter
+package eu.tutorials.noting.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import eu.tutorials.noting.Models.Notes
+import eu.tutorials.noting.models.Notes
 import eu.tutorials.noting.R
 import kotlin.random.Random
 

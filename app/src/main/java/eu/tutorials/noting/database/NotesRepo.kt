@@ -1,7 +1,7 @@
-package eu.tutorials.noting.Database
+package eu.tutorials.noting.database
 
 import androidx.lifecycle.LiveData
-import eu.tutorials.noting.Models.Notes
+import eu.tutorials.noting.models.Notes
 
 class NotesRepo(private val NotesDao: NotesDao) {
     val allNotes:LiveData<List<Notes>> = NotesDao.getAllNotes()

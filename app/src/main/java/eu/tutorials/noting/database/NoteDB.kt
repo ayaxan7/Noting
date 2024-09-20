@@ -1,10 +1,10 @@
-package eu.tutorials.noting.Database
+package eu.tutorials.noting.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import eu.tutorials.noting.Models.Notes
+import eu.tutorials.noting.models.Notes
 import eu.tutorials.noting.utilities.DATABASE_NAME
 
 @Database(entities = arrayOf(Notes::class), version = 1, exportSchema = false)
