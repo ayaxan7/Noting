@@ -2,6 +2,7 @@ package eu.tutorials.noting
 
 import android.app.Activity
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -11,6 +12,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
@@ -72,6 +74,7 @@ class MainActivity : AppCompatActivity(), NotesAdapter.NotesClickListener, Popup
 
         initUI()
         setupViewModel()
+        updateFabColor()
 
         // Setting insets
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -107,6 +110,31 @@ class MainActivity : AppCompatActivity(), NotesAdapter.NotesClickListener, Popup
             }
         })
     }
+    // Method to update FloatingActionButton color dynamically based on UI mode
+    private fun updateFabColor() {
+        val fab = binding.floatingActionButton
+
+        val currentNightMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+        Log.d(TAG, "Current night mode: $currentNightMode")
+
+        when (currentNightMode) {
+            Configuration.UI_MODE_NIGHT_YES -> {
+                // Dark mode: Set FAB tint to black
+                Log.d(TAG, "Dark mode detected, setting FAB tint to black")
+                fab.backgroundTintList = ContextCompat.getColorStateList(this, android.R.color.black)
+            }
+            Configuration.UI_MODE_NIGHT_NO -> {
+                // Light mode: Set FAB tint to white
+                Log.d(TAG, "Light mode detected, setting FAB tint to white")
+                fab.backgroundTintList = ContextCompat.getColorStateList(this, android.R.color.white)
+            }
+            else -> {
+                // Handle other possible modes (if necessary)
+                Log.d(TAG, "Unknown UI mode detected")
+            }
+        }
+    }
+
 
     private fun setupViewModel() {
         viewModel = ViewModelProvider(this).get(NoteViewModel::class.java)

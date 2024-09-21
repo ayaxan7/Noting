@@ -2,6 +2,7 @@ package eu.tutorials.noting.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
+import androidx.core.content.ContextCompat
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -9,13 +10,16 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import eu.tutorials.noting.models.Notes
 import eu.tutorials.noting.R
-import kotlin.random.Random
 
-class NotesAdapter(private val context: Context,val listener: NotesClickListener) : RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
+class NotesAdapter(private val context: Context, val listener: NotesClickListener) : RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
     private val NotesList = ArrayList<Notes>()
     private val fullList = ArrayList<Notes>()
 
-    private val generatedColors = mutableSetOf<Int>() // Store unique colors in a set
+    // Predefined colors from colors.xml
+    private val noteColors = listOf(
+        R.color.color1, R.color.color2, R.color.color3,
+        R.color.color4, R.color.color5, R.color.color6
+    )
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
         return NoteViewHolder(
@@ -27,26 +31,6 @@ class NotesAdapter(private val context: Context,val listener: NotesClickListener
         return NotesList.size
     }
 
-    // Helper function to generate a random color
-    private fun getRandomColor(): Int {
-        val random = Random(System.currentTimeMillis())
-        val r = random.nextInt(256)
-        val g = random.nextInt(256)
-        val b = random.nextInt(256)
-        return (0xFF shl 24) or (r shl 16) or (g shl 8) or b // Return color as an ARGB Int value
-    }
-
-    // Function to generate a unique color
-    private fun generateUniqueColor(): Int {
-        var color: Int
-        do {
-            color = getRandomColor()
-        } while (generatedColors.contains(color)) // Keep generating until you find a unique color
-
-        generatedColors.add(color) // Add the new unique color to the set
-        return color
-    }
-
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
         val currentNote = NotesList[position]
         holder.title_text.text = currentNote.title
@@ -55,29 +39,33 @@ class NotesAdapter(private val context: Context,val listener: NotesClickListener
         holder.date_text.text = currentNote.date
         holder.date_text.isSelected = true
 
-        // Assign a random unique color to each card's background
-        holder.notes_layout.setCardBackgroundColor(generateUniqueColor())
-        holder.notes_layout.cardElevation = 8f
-        holder.notes_layout.setOnClickListener{
+
+        val colorResId = noteColors[position % noteColors.size]  // Cycles through the list
+        holder.notes_layout.setCardBackgroundColor(ContextCompat.getColor(context,colorResId))
+
+        holder.notes_layout.cardElevation = 15f
+        holder.notes_layout.setOnClickListener {
             listener.onItemClicked(NotesList[holder.adapterPosition])
         }
-        holder.notes_layout.setOnLongClickListener{
-            listener.onLongItemClicked(NotesList[holder.adapterPosition],holder.notes_layout)
+        holder.notes_layout.setOnLongClickListener {
+            listener.onLongItemClicked(NotesList[holder.adapterPosition], holder.notes_layout)
             true
         }
     }
-    fun UpdateList(newList:List<Notes>){
+
+    fun UpdateList(newList: List<Notes>) {
         fullList.clear()
         fullList.addAll(newList)
         NotesList.clear()
         NotesList.addAll(fullList)
+        notifyDataSetChanged()
     }
-    fun filterList(search:String){
+
+    fun filterList(search: String) {
         NotesList.clear()
-        for(item in fullList){
-            if(item.title?.lowercase()?.contains(search.lowercase())==true ||
-                item.body?.lowercase()?.contains(search.lowercase())==true)
-            {
+        for (item in fullList) {
+            if (item.title?.lowercase()?.contains(search.lowercase()) == true ||
+                item.body?.lowercase()?.contains(search.lowercase()) == true) {
                 NotesList.add(item)
             }
         }
@@ -90,7 +78,8 @@ class NotesAdapter(private val context: Context,val listener: NotesClickListener
         val note_text = itemView.findViewById<TextView>(R.id.note)
         val date_text = itemView.findViewById<TextView>(R.id.date)
     }
-    interface NotesClickListener{
+
+    interface NotesClickListener {
         fun onItemClicked(notes: Notes)
         fun onLongItemClicked(notes: Notes, cardView: CardView)
     }

@@ -82,8 +82,9 @@ class AddNotes : AppCompatActivity() {
     }
 
     fun formatTimestamp(unixTimestamp: Long): String {
-        val formatter = SimpleDateFormat("EEE, d MMM yyyy HH:mm a", Locale.getDefault())
+        val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault()) // 24-hour format
         val date = Date(unixTimestamp * 1000)
         return formatter.format(date)
     }
+
 }
