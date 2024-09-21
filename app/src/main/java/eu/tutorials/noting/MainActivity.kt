@@ -87,6 +87,11 @@ class MainActivity : AppCompatActivity(), NotesAdapter.NotesClickListener, Popup
     private fun initUI() {
         binding.recyclerView.setHasFixedSize(true)
         binding.recyclerView.layoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
+
+        // Add item decoration for spacing
+        val spacing = 16 // Adjust spacing as needed
+        binding.recyclerView.addItemDecoration(GridSpacingItemDecoration(2, spacing, true))
+
         adapter = NotesAdapter(this, this)
         binding.recyclerView.adapter = adapter
 
@@ -110,6 +115,7 @@ class MainActivity : AppCompatActivity(), NotesAdapter.NotesClickListener, Popup
             }
         })
     }
+
     // Method to update FloatingActionButton color dynamically based on UI mode
     private fun updateFabColor() {
         val fab = binding.floatingActionButton

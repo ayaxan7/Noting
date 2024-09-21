@@ -10,6 +10,7 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import eu.tutorials.noting.models.Notes
 import eu.tutorials.noting.R
+import kotlin.random.Random
 
 class NotesAdapter(private val context: Context, val listener: NotesClickListener) : RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
     private val NotesList = ArrayList<Notes>()
@@ -34,14 +35,17 @@ class NotesAdapter(private val context: Context, val listener: NotesClickListene
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
         val currentNote = NotesList[position]
         holder.title_text.text = currentNote.title
-        holder.title_text.isSelected = true
         holder.note_text.text = currentNote.body
         holder.date_text.text = currentNote.date
-        holder.date_text.isSelected = true
 
+        // Set a random height for each note card
+        val randomHeight = Random.nextInt(250, 600) // Adjust the range as needed
+        val layoutParams = holder.notes_layout.layoutParams
+        layoutParams.height = randomHeight
+        holder.notes_layout.layoutParams = layoutParams
 
         val colorResId = noteColors[position % noteColors.size]  // Cycles through the list
-        holder.notes_layout.setCardBackgroundColor(ContextCompat.getColor(context,colorResId))
+        holder.notes_layout.setCardBackgroundColor(ContextCompat.getColor(context, colorResId))
 
         holder.notes_layout.cardElevation = 15f
         holder.notes_layout.setOnClickListener {
