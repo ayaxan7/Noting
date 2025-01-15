@@ -18,9 +18,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import eu.tutorials.noting.adapter.NotesAdapter
-import eu.tutorials.noting.database.NoteDB
 import eu.tutorials.noting.models.NoteViewModel
 import eu.tutorials.noting.models.Notes
 import eu.tutorials.noting.databinding.ActivityMainBinding
