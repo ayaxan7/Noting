@@ -11,11 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4  # Check out the code from the repository
 
-      - name: Set up JDK 1.8
+      - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'  # Use Temurin distribution for JDK
-          java-version: 8.0.432       # Specify Java version 1.8
+          java-version: 17     # Specify Java version 1.8
           cache: gradle            # Cache Gradle dependencies
 
       - name: Grant execute permission for gradlew
